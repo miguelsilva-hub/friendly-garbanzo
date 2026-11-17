@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "filtrum-mkt.vercel.app" }],
+      "destination": "https://filtrummkt.com.br/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.filtrummkt.com.br" }],
+      "destination": "https://filtrummkt.com.br/$1",
+      "permanent": true
+    }
+  ]
+}
