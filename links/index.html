@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Filtrum Marketing Digital | Links</title>
+  <meta name="description" content="Fale com a Filtrum no WhatsApp e conheça os serviços: tráfego pago, landing pages, edição de vídeos e social media.">
+  <meta name="theme-color" content="#05091A">
+  <meta property="og:title" content="Filtrum Marketing Digital">
+  <meta property="og:description" content="Anúncios que viram clientes no seu WhatsApp.">
+  <meta property="og:image" content="https://filtrummkt.com.br/assets/img/og-image.jpg">
+  <meta property="og:url" content="https://filtrummkt.com.br/links/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="canonical" href="https://filtrummkt.com.br/links/">
+  <link rel="icon" type="image/jpeg" href="../assets/img/links/avatar.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="../assets/img/links/hero.jpg">
+
+  <style>
+    :root{
+      --bg:#05091A;
+      --bg-2:#0A1430;
+      --navy:#0E3A6B;
+      --cobalt:#1E5BFF;
+      --lime:#C6F432;
+      --ink:#FFFFFF;
+      --ink-2:#B9C3DA;
+      --line:rgba(255,255,255,.55);
+      --card:rgba(10,20,48,.72);
+      --radius:22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+
+    /* fundo com brilho, igual ao "glow" da referência, só que em cobalto/lime */
+    .page{
+      position:relative;
+      max-width:480px;
+      margin:0 auto;
+      min-height:100vh;
+      overflow:hidden;
+      background:
+        radial-gradient(120% 60% at 50% 38%, rgba(30,91,255,.28), transparent 60%),
+        radial-gradient(90% 40% at 50% 100%, rgba(198,244,50,.10), transparent 70%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 45%, var(--bg) 100%);
+      padding-bottom:calc(32px + env(safe-area-inset-bottom));
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{position:relative;height:430px}
+    .hero img{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;object-position:50% 12%;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(180deg, rgba(5,9,26,0) 30%, rgba(5,9,26,.55) 62%, var(--bg) 100%);
+    }
+    .hero__txt{
+      position:absolute;left:0;right:0;bottom:22px;z-index:2;
+      text-align:center;padding:0 16px;
+    }
+    .hero__name{
+      font-weight:800;
+      font-size:clamp(40px,12vw,56px);
+      line-height:1;letter-spacing:.02em;text-transform:uppercase;
+      text-shadow:0 4px 24px rgba(0,0,0,.6);
+    }
+    .hero__role{
+      margin-top:8px;font-weight:700;font-size:17px;color:var(--ink);
+      opacity:.92;
+    }
+    .hero__role span{color:var(--lime)}
+
+    /* ---------- CONTEÚDO ---------- */
+    .wrap{position:relative;z-index:3;padding:0 16px}
+
+    .intro{
+      display:flex;align-items:center;gap:12px;margin-top:6px;
+    }
+    .intro__avatar{
+      flex:0 0 52px;height:52px;border-radius:50%;
+      border:2px solid var(--line);overflow:hidden;
+      box-shadow:0 0 0 4px rgba(30,91,255,.18);
+    }
+    .intro__avatar img{width:100%;height:100%;object-fit:cover}
+    .intro__bubble{
+      flex:1;border:1.5px solid var(--line);border-radius:999px;
+      padding:10px 18px;font-size:12.5px;line-height:1.35;font-weight:600;
+      background:rgba(5,9,26,.55);
+    }
+
+    .label{
+      margin-top:18px;display:flex;align-items:center;justify-content:center;
+      position:relative;height:58px;border:1.5px solid var(--line);border-radius:16px;
+      font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;
+      background:rgba(5,9,26,.35);
+    }
+    .label svg{position:absolute;right:18px;width:26px;height:26px}
+    @media (prefers-reduced-motion:no-preference){
+      .label svg{animation:bob 1.8s ease-in-out infinite}
+      @keyframes bob{50%{transform:translateY(4px)}}
+    }
+
+    /* ---------- CARDS ---------- */
+    .cards{list-style:none;margin-top:18px;display:grid;gap:18px}
+    .card{
+      position:relative;display:grid;grid-template-columns:1fr 44%;
+      align-items:center;min-height:150px;
+      border:1.5px solid var(--line);border-radius:var(--radius);
+      background:var(--card);
+      padding:20px 0 20px 20px;
+      overflow:hidden;
+      transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+    }
+    .card:hover,.card:focus-visible{
+      transform:translateY(-2px);border-color:#fff;
+      box-shadow:0 10px 30px rgba(30,91,255,.25);
+      outline:none;
+    }
+    .card--rev{grid-template-columns:44% 1fr;padding:20px 20px 20px 0}
+    .card--rev .card__txt{order:2;text-align:right}
+    .card--rev .card__art{order:1}
+    .card--rev .card__btn{margin-left:auto}
+
+    .card__title{font-weight:800;font-size:26px;line-height:1.05;letter-spacing:-.01em}
+    .card__sub{margin-top:6px;font-size:13px;font-weight:600;color:var(--ink-2)}
+    .card__btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      margin-top:14px;height:30px;padding:0 18px;border-radius:7px;
+      background:#fff;color:#0A1430;
+      font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    }
+    .card__art{position:relative;height:120px;display:flex;align-items:center;justify-content:center}
+
+    /* destaque: WhatsApp */
+    .card--main{
+      border-color:var(--lime);
+      background:
+        radial-gradient(80% 120% at 85% 50%, rgba(198,244,50,.22), transparent 60%),
+        var(--card);
+    }
+    .card--main .card__btn{background:var(--lime);color:#0A1430}
+    @media (prefers-reduced-motion:no-preference){
+      .card--main{animation:pulse 2.6s ease-in-out infinite}
+      @keyframes pulse{
+        0%,100%{box-shadow:0 0 0 0 rgba(198,244,50,.0)}
+        50%{box-shadow:0 0 0 6px rgba(198,244,50,.16)}
+      }
+    }
+
+    /* ---------- ILUSTRAÇÕES (CSS puro, trocáveis por foto) ---------- */
+    /* chat */
+    .art-chat{width:120px;display:grid;gap:7px}
+    .art-chat i{display:block;height:22px;border-radius:12px 12px 12px 4px;background:rgba(255,255,255,.14)}
+    .art-chat i:nth-child(1){width:78%}
+    .art-chat i:nth-child(2){width:62%;margin-left:auto;border-radius:12px 12px 4px 12px;background:var(--lime)}
+    .art-chat i:nth-child(3){width:88%}
+    .art-chat i:nth-child(4){width:50%;margin-left:auto;border-radius:12px 12px 4px 12px;background:var(--lime)}
+    .art-whats{
+      position:absolute;right:6px;bottom:-4px;width:46px;height:46px;border-radius:50%;
+      background:#25D366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.4)
+    }
+    .art-whats svg{width:26px;height:26px;color:#fff}
+
+    /* gráfico tráfego */
+    .art-bars{display:flex;align-items:flex-end;gap:8px;height:96px}
+    .art-bars i{display:block;width:16px;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,var(--cobalt),var(--navy))}
+    .art-bars i:nth-child(1){height:28%}
+    .art-bars i:nth-child(2){height:44%}
+    .art-bars i:nth-child(3){height:38%}
+    .art-bars i:nth-child(4){height:66%}
+    .art-bars i:nth-child(5){height:100%;background:linear-gradient(180deg,var(--lime),#7FA51C)}
+    .art-target{position:absolute;top:2px;left:10px;width:40px;height:40px;color:var(--lime)}
+
+    /* navegador landing */
+    .art-browser{width:132px;height:100px;border-radius:10px;border:1.5px solid rgba(255,255,255,.7);overflow:hidden;background:#0A1430}
+    .art-browser__bar{height:16px;background:rgba(255,255,255,.12);display:flex;gap:4px;align-items:center;padding-left:7px}
+    .art-browser__bar i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6)}
+    .art-browser__body{padding:9px;display:grid;gap:6px}
+    .art-browser__body b{display:block;height:10px;width:80%;border-radius:3px;background:#fff}
+    .art-browser__body s{display:block;height:6px;width:60%;border-radius:3px;background:rgba(255,255,255,.35)}
+    .art-browser__body u{display:block;margin-top:4px;height:18px;width:62px;border-radius:5px;background:var(--lime)}
+
+    /* celular vídeo */
+    .art-phone{width:70px;height:116px;border-radius:14px;border:2px solid rgba(255,255,255,.75);
+      background:linear-gradient(160deg,var(--cobalt),var(--navy) 70%);position:relative;overflow:hidden}
+    .art-phone::before{content:"";position:absolute;top:5px;left:50%;width:22px;height:5px;margin-left:-11px;border-radius:5px;background:rgba(0,0,0,.5)}
+    .art-play{position:absolute;inset:0;display:grid;place-items:center}
+    .art-play span{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center}
+    .art-play span::after{content:"";border-left:11px solid #0A1430;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+    .art-tl{position:absolute;left:8px;right:8px;bottom:9px;height:4px;border-radius:4px;background:rgba(255,255,255,.3)}
+    .art-tl::after{content:"";position:absolute;left:0;top:0;bottom:0;width:58%;border-radius:4px;background:var(--lime)}
+
+    /* grade insta */
+    .art-grid{display:grid;grid-template-columns:repeat(3,34px);gap:4px}
+    .art-grid i{display:block;height:34px;border-radius:5px;background:rgba(255,255,255,.12)}
+    .art-grid i:nth-child(2),.art-grid i:nth-child(6){background:var(--cobalt)}
+    .art-grid i:nth-child(4),.art-grid i:nth-child(8){background:var(--lime)}
+    .art-grid i:nth-child(5){background:#fff}
+
+    /* site */
+    .art-logo{width:118px;opacity:.95}
+
+    /* ---------- RODAPÉ ---------- */
+    .foot{margin-top:30px;text-align:center}
+    .foot__social{display:flex;justify-content:center;gap:12px}
+    .foot__social a{
+      width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);
+      display:grid;place-items:center;transition:border-color .2s,background .2s
+    }
+    .foot__social a:hover{border-color:var(--lime);background:rgba(198,244,50,.08)}
+    .foot__social svg{width:22px;height:22px}
+    .foot__logo{width:150px;margin:22px auto 8px;opacity:.85}
+    .foot p{font-size:12px;color:var(--ink-2)}
+
+    .st{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+    @media (max-width:360px){
+      .card__title{font-size:22px}
+      .hero{height:380px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <img src="../assets/img/links/hero.jpg" alt="" width="900" height="1200" fetchpriority="high">
+      <div class="hero__txt">
+        <h1 class="hero__name">Filtrum</h1>
+        <p class="hero__role">Marketing digital <span>·</span> Tráfego pago</p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="intro">
+        <div class="intro__avatar"><img src="../assets/img/links/avatar.jpg" alt="Símbolo da Filtrum" width="160" height="160"></div>
+        <p class="intro__bubble">Anúncios que viram clientes no seu WhatsApp. Escolha um serviço abaixo ou chame a gente direto.</p>
+      </div>
+
+      <div class="label">
+        Meus links
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="st" d="M12 4v15M6 13l6 6 6-6"/></svg>
+      </div>
+
+      <ul class="cards">
+        <li>
+          <a class="card card--main" target="_blank" rel="noopener"
+             href="https://wa.me/5598982787460?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20mais%20clientes."
+             data-track="links-whatsapp-principal">
+            <div class="card__txt">
+              <p class="card__title">Quero mais clientes</p>
+              <span class="card__btn">Chamar no Whats</span>
+            </div>
+            <div class="card__art" aria-hidden="true">
+              <div class="art-chat"><i></i><i></i><i></i><i></i></div>
+              <span class="art-whats"><svg><use href="#i-whats"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="card card--rev" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=trafego#trafego-pago" data-track="links-trafego">
+            <div class="card__txt">
+              <p class="card__title">Tráfego pago</p>
+              <p class="card__sub">Meta Ads e Google Ads</p>
+              <span class="card__btn">Saiba mais</span>
+            </div>
+            <div class="card__art" aria-hidden="true">
+              <svg class="art-target"><use href="#i-target"/></svg>
+              <div class="art-bars"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="card" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=landing#landing-pages" data-track="links-landing">
+            <div class="card__txt">
+              <p class="card__title">Landing pages</p>
+              <p class="card__sub">Páginas que vendem</p>
+              <span class="card__btn">Saiba mais</span>
+            </div>
+            <div class="card__art" aria-hidden="true">
+              <div class="art-browser">
+                <div class="art-browser__bar"><i></i><i></i><i></i></div>
+                <div class="art-browser__body"><b></b><s></s><s></s><u></u></div>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="card card--rev" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=videos#edicao-de-videos" data-track="links-videos">
+            <div class="card__txt">
+              <p class="card__title">Edição de vídeos</p>
+              <p class="card__sub">Reels, anúncios e YouTube</p>
+              <span class="card__btn">Saiba mais</span>
+            </div>
+            <div class="card__art" aria-hidden="true">
+              <div class="art-phone"><div class="art-play"><span></span></div><div class="art-tl"></div></div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="card" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=social#social-media" data-track="links-social">
+            <div class="card__txt">
+              <p class="card__title">Social media</p>
+              <p class="card__sub">Instagram que vende</p>
+              <span class="card__btn">Saiba mais</span>
+            </div>
+            <div class="card__art" aria-hidden="true">
+              <div class="art-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="card card--rev" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=site" data-track="links-site">
+            <div class="card__txt">
+              <p class="card__title">Conheça o site</p>
+              <p class="card__sub">Como funciona, para quem é e dúvidas</p>
+              <span class="card__btn">Saiba mais</span>
+            </div>
+            <div class="card__art" aria-hidden="true">
+              <img class="art-logo" src="../assets/img/links/logo-branco.png" alt="" width="760" height="229" loading="lazy">
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <footer class="foot">
+        <div class="foot__social">
+          <a href="https://www.instagram.com/filtrum.mkt/" target="_blank" rel="noopener" aria-label="Instagram da Filtrum" data-track="links-instagram">
+            <svg aria-hidden="true"><use href="#i-insta"/></svg>
+          </a>
+          <a href="https://wa.me/5598982787460?text=Ol%C3%A1!%20Vim%20pelo%20Instagram." target="_blank" rel="noopener" aria-label="WhatsApp da Filtrum" data-track="links-whatsapp-rodape">
+            <svg aria-hidden="true"><use href="#i-whats"/></svg>
+          </a>
+        </div>
+        <img class="foot__logo" src="../assets/img/links/logo-branco.png" alt="Filtrum Marketing Digital" width="760" height="229" loading="lazy">
+        <p>© <span id="ano">2026</span> Filtrum Marketing Digital</p>
+      </footer>
+    </main>
+  </div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23a7.46 7.46 0 0 1-1.38-1.72c-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><g class="st"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><path d="M12 12 20 4M16.5 4H20v3.5"/></g></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><g class="st"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></g></symbol>
+  </svg>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
