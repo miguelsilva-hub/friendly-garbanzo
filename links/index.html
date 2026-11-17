@@ -21,9 +21,11 @@
 
   <style>
     :root{
+      color-scheme:dark;
       --bg:#05091A;
       --bg-2:#0A1430;
       --navy:#0E3A6B;
+      --site:#0B1B42;
       --cobalt:#1E5BFF;
       --lime:#C6F432;
       --ink:#FFFFFF;
@@ -31,26 +33,24 @@
       --line:rgba(255,255,255,.55);
       --card:rgba(10,20,48,.72);
       --radius:22px;
+      /* cores das telas simuladas */
+      --wa-bg:#0B141A; --wa-head:#1F2C34; --wa-in:#202C33; --wa-out:#005C4B; --wa-green:#25D366; --wa-tick:#53BDEB;
+      --ig-blue:#0095F6; --ig-gray:#262626; --ig-link:#E0F1FF;
+      --cc-bg:#0E0E0E; --cc-panel:#1C1C1E; --cc-text:#7B61FF; --cc-audio:#1FB5A0; --cc-fx:#F2994A;
+      --ads-bg:#F0F2F5; --ads-ink:#1C2B33; --ads-mute:#65676B; --ads-blue:#0866FF; --ads-green:#31A24C;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{-webkit-text-size-adjust:100%}
     body{
       font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      min-height:100vh;
+      background:var(--bg);color:var(--ink);min-height:100vh;
       -webkit-font-smoothing:antialiased;
     }
     a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%;height:auto}
 
-    /* fundo com brilho, igual ao "glow" da referência, só que em cobalto/lime */
     .page{
-      position:relative;
-      max-width:480px;
-      margin:0 auto;
-      min-height:100vh;
-      overflow:hidden;
+      position:relative;max-width:480px;margin:0 auto;min-height:100vh;overflow:hidden;
       background:
         radial-gradient(120% 60% at 50% 38%, rgba(30,91,255,.28), transparent 60%),
         radial-gradient(90% 40% at 50% 100%, rgba(198,244,50,.10), transparent 70%),
@@ -60,168 +60,309 @@
 
     /* ---------- HERO ---------- */
     .hero{position:relative;height:430px}
-    .hero img{
-      position:absolute;inset:0;width:100%;height:100%;
-      object-fit:cover;object-position:50% 12%;
-    }
-    .hero::after{
-      content:"";position:absolute;inset:0;
-      background:
-        linear-gradient(180deg, rgba(5,9,26,0) 30%, rgba(5,9,26,.55) 62%, var(--bg) 100%);
-    }
-    .hero__txt{
-      position:absolute;left:0;right:0;bottom:22px;z-index:2;
-      text-align:center;padding:0 16px;
-    }
-    .hero__name{
-      font-weight:800;
-      font-size:clamp(40px,12vw,56px);
-      line-height:1;letter-spacing:.02em;text-transform:uppercase;
-      text-shadow:0 4px 24px rgba(0,0,0,.6);
-    }
-    .hero__role{
-      margin-top:8px;font-weight:700;font-size:17px;color:var(--ink);
-      opacity:.92;
-    }
+    .hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+    .hero::after{content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(5,9,26,0) 30%, rgba(5,9,26,.55) 62%, var(--bg) 100%)}
+    .hero__txt{position:absolute;left:0;right:0;bottom:22px;z-index:2;text-align:center;padding:0 16px}
+    .hero__name{font-weight:800;font-size:clamp(40px,12vw,56px);line-height:1;letter-spacing:.02em;text-transform:uppercase;text-shadow:0 4px 24px rgba(0,0,0,.6)}
+    .hero__role{margin-top:8px;font-weight:700;font-size:17px;opacity:.92}
     .hero__role span{color:var(--lime)}
 
-    /* ---------- CONTEÚDO ---------- */
     .wrap{position:relative;z-index:3;padding:0 16px}
-
-    .intro{
-      display:flex;align-items:center;gap:12px;margin-top:6px;
-    }
-    .intro__avatar{
-      flex:0 0 52px;height:52px;border-radius:50%;
-      border:2px solid var(--line);overflow:hidden;
-      box-shadow:0 0 0 4px rgba(30,91,255,.18);
-    }
+    .intro{display:flex;align-items:center;gap:12px;margin-top:6px}
+    .intro__avatar{flex:0 0 52px;height:52px;border-radius:50%;border:2px solid var(--line);overflow:hidden;box-shadow:0 0 0 4px rgba(30,91,255,.18)}
     .intro__avatar img{width:100%;height:100%;object-fit:cover}
-    .intro__bubble{
-      flex:1;border:1.5px solid var(--line);border-radius:999px;
-      padding:10px 18px;font-size:12.5px;line-height:1.35;font-weight:600;
-      background:rgba(5,9,26,.55);
-    }
+    .intro__bubble{flex:1;border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;font-size:12.5px;line-height:1.35;font-weight:600;background:rgba(5,9,26,.55)}
 
-    .label{
-      margin-top:18px;display:flex;align-items:center;justify-content:center;
-      position:relative;height:58px;border:1.5px solid var(--line);border-radius:16px;
-      font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;
-      background:rgba(5,9,26,.35);
-    }
+    .label{margin-top:18px;display:flex;align-items:center;justify-content:center;position:relative;height:58px;
+      border:1.5px solid var(--line);border-radius:16px;font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;background:rgba(5,9,26,.35)}
     .label svg{position:absolute;right:18px;width:26px;height:26px}
-    @media (prefers-reduced-motion:no-preference){
-      .label svg{animation:bob 1.8s ease-in-out infinite}
-      @keyframes bob{50%{transform:translateY(4px)}}
-    }
 
     /* ---------- CARDS ---------- */
     .cards{list-style:none;margin-top:18px;display:grid;gap:18px}
     .card{
-      position:relative;display:grid;grid-template-columns:1fr 44%;
-      align-items:center;min-height:150px;
-      border:1.5px solid var(--line);border-radius:var(--radius);
-      background:var(--card);
-      padding:20px 0 20px 20px;
-      overflow:hidden;
+      position:relative;display:grid;grid-template-columns:1fr 54%;align-items:center;min-height:250px;
+      border:1.5px solid var(--line);border-radius:var(--radius);background:var(--card);
+      padding:0 0 0 18px;overflow:hidden;
       transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
     }
-    .card:hover,.card:focus-visible{
-      transform:translateY(-2px);border-color:#fff;
-      box-shadow:0 10px 30px rgba(30,91,255,.25);
-      outline:none;
-    }
-    .card--rev{grid-template-columns:44% 1fr;padding:20px 20px 20px 0}
+    .card:hover,.card:focus-visible{transform:translateY(-2px);border-color:#fff;box-shadow:0 10px 30px rgba(30,91,255,.25);outline:none}
+    .card--rev{grid-template-columns:54% 1fr;padding:0 18px 0 0}
     .card--rev .card__txt{order:2;text-align:right}
     .card--rev .card__art{order:1}
     .card--rev .card__btn{margin-left:auto}
+    .card--wide{grid-template-columns:1fr 60%}
+    .card--wide.card--rev{grid-template-columns:60% 1fr}
 
-    .card__title{font-weight:800;font-size:26px;line-height:1.05;letter-spacing:-.01em}
-    .card__sub{margin-top:6px;font-size:13px;font-weight:600;color:var(--ink-2)}
-    .card__btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      margin-top:14px;height:30px;padding:0 18px;border-radius:7px;
-      background:#fff;color:#0A1430;
-      font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-    }
-    .card__art{position:relative;height:120px;display:flex;align-items:center;justify-content:center}
+    .card__txt{position:relative;z-index:2;padding:18px 0;min-width:0}
+    .card__title{font-weight:800;font-size:25px;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+    .card__sub{margin-top:6px;font-size:12.5px;font-weight:600;color:var(--ink-2)}
+    .card__btn{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;height:30px;padding:0 16px;border-radius:7px;
+      background:#fff;color:#0A1430;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 
-    /* destaque: WhatsApp */
-    .card--main{
-      border-color:var(--lime);
+    .card__art{position:relative;align-self:stretch;min-height:250px}
+    .mock{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--s,.8));transform-origin:center}
+    .card--wide:not(.card--rev) .mock{left:auto;right:0;transform:translate(5%,-50%) scale(var(--s,.8));transform-origin:right center}
+    .card--wide.card--rev .mock{left:0;transform:translate(-5%,-50%) scale(var(--s,.8));transform-origin:left center}
+
+    .card--main{border-color:var(--lime);background:radial-gradient(80% 120% at 85% 50%, rgba(198,244,50,.18), transparent 60%),var(--card)}
+    .card--main .card__btn{background:var(--lime)}
+
+    .demo-tag{position:absolute;right:10px;bottom:8px;z-index:3;font-size:9px;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.55)}
+    .card--rev .demo-tag{right:auto;left:10px}
+
+    /* ========== CELULAR (base) ========== */
+    .phone{width:150px;height:304px;border-radius:26px;background:#000;padding:5px;
+      box-shadow:0 0 0 1.5px #3a3f4a, 0 18px 40px rgba(0,0,0,.55)}
+    .phone__screen{position:relative;width:100%;height:100%;border-radius:21px;overflow:hidden;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+    .phone__island{position:absolute;top:6px;left:50%;width:46px;height:13px;margin-left:-23px;border-radius:10px;background:#000;z-index:5}
+    .status{height:24px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:8.5px;font-weight:700;color:#fff}
+    .status i{display:inline-block;width:14px;height:6px;border:1px solid #fff;border-radius:2px;position:relative}
+    .status i::after{content:"";position:absolute;inset:1px 3px 1px 1px;background:#fff;border-radius:1px}
+
+    /* ========== 1. WHATSAPP ========== */
+    .wa{background:var(--wa-bg)}
+    .wa__head{display:flex;align-items:center;gap:6px;padding:4px 8px 6px;background:var(--wa-head);color:#E9EDEF}
+    .wa__back{font-size:12px;line-height:1;color:#E9EDEF}
+    .wa__av{width:22px;height:22px;border-radius:50%;overflow:hidden;flex:0 0 22px}
+    .wa__av img{width:100%;height:100%;object-fit:cover}
+    .wa__who{flex:1;min-width:0;line-height:1.15}
+    .wa__who b{display:block;font-size:9px;font-weight:600}
+    .wa__who small{display:block;font-size:7px;color:#8696A0}
+    .wa__who small.typing{color:var(--wa-green)}
+    .wa__ico{display:flex;gap:7px}
+    .wa__ico svg{width:10px;height:10px;color:#AEBAC1}
+    .wa__body{position:absolute;top:58px;left:0;right:0;bottom:30px;padding:6px 7px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;overflow:hidden;
+      background-image:radial-gradient(rgba(255,255,255,.035) 1px, transparent 1.2px);background-size:9px 9px}
+    .wa__day{align-self:center;font-size:6.5px;color:#8696A0;background:#182229;padding:2px 6px;border-radius:5px;margin-bottom:2px}
+    .msg{max-width:84%;padding:4px 6px 3px;border-radius:7px;font-size:7.6px;line-height:1.3;color:#E9EDEF;position:relative;
+      animation:pop .28s cubic-bezier(.2,.9,.3,1.3) both}
+    .msg--in{align-self:flex-start;background:var(--wa-in);border-top-left-radius:2px}
+    .msg--out{align-self:flex-end;background:var(--wa-out);border-top-right-radius:2px}
+    .msg__meta{float:right;margin:3px 0 -2px 6px;font-size:5.6px;color:rgba(233,237,239,.6);display:inline-flex;align-items:center;gap:1px}
+    .msg__meta svg{width:9px;height:6px;color:var(--wa-tick)}
+    .msg--typing{padding:6px 8px;display:flex;gap:2.5px}
+    .msg--typing i{width:4px;height:4px;border-radius:50%;background:#8696A0;animation:dot 1s infinite}
+    .msg--typing i:nth-child(2){animation-delay:.15s}.msg--typing i:nth-child(3){animation-delay:.3s}
+    @keyframes pop{from{opacity:0;transform:translateY(6px) scale(.92)}to{opacity:1;transform:none}}
+    @keyframes dot{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-2px)}}
+    .wa__input{position:absolute;left:0;right:0;bottom:0;height:30px;display:flex;align-items:center;gap:5px;padding:0 6px}
+    .wa__field{flex:1;height:19px;border-radius:10px;background:#2A3942;font-size:7px;color:#8696A0;display:flex;align-items:center;padding-left:8px}
+    .wa__mic{width:19px;height:19px;border-radius:50%;background:var(--wa-green);display:grid;place-items:center}
+    .wa__mic svg{width:9px;height:9px;color:#111B21}
+
+    /* ========== NOTEBOOK (base) ========== */
+    .laptop{width:330px}
+    .laptop__lid{background:#111318;border-radius:12px 12px 4px 4px;padding:7px 7px 9px;box-shadow:0 0 0 1.5px #3a3f4a, 0 20px 40px rgba(0,0,0,.55)}
+    .laptop__screen{position:relative;height:200px;border-radius:4px;overflow:hidden}
+    .laptop__base{height:9px;margin:0 -14px;border-radius:0 0 10px 10px;background:linear-gradient(#C9CED8,#8E95A3)}
+    .laptop__base::after{content:"";display:block;width:52px;height:3px;margin:0 auto;border-radius:0 0 4px 4px;background:#6E7583}
+
+    /* ========== 2. GERENCIADOR DE ANÚNCIOS ========== */
+    .ads{background:var(--ads-bg);color:var(--ads-ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:grid;grid-template-columns:20px 1fr;height:100%}
+    .ads__side{background:#fff;border-right:1px solid #DADDE1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:6px}
+    .ads__side i{width:9px;height:9px;border-radius:2px;background:#BCC0C4}
+    .ads__side i:first-child{background:var(--ads-blue);border-radius:50%}
+    .ads__side i.on{background:var(--ads-blue)}
+    .ads__main{display:flex;flex-direction:column;min-width:0}
+    .ads__top{height:20px;background:#fff;border-bottom:1px solid #DADDE1;display:flex;align-items:center;justify-content:space-between;padding:0 7px;font-size:7.5px;font-weight:700}
+    .ads__top span{font-weight:500;color:var(--ads-mute);font-size:6.5px;border:1px solid #DADDE1;border-radius:4px;padding:1px 4px}
+    .ads__kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:5px 6px 0}
+    .kpi{background:#fff;border-radius:5px;padding:4px 5px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+    .kpi small{display:block;font-size:5.4px;color:var(--ads-mute);white-space:nowrap}
+    .kpi b{display:block;font-size:9.5px;margin-top:1px;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .kpi em{font-style:normal;font-size:5.4px;color:var(--ads-green);font-weight:700}
+    .ads__chart{margin:5px 6px 0;background:#fff;border-radius:5px;box-shadow:0 1px 2px rgba(0,0,0,.08);padding:4px 5px 2px;position:relative}
+    .ads__chart header{display:flex;justify-content:space-between;font-size:6px;font-weight:700}
+    .ads__chart header span{display:flex;gap:6px;font-weight:600;color:var(--ads-mute)}
+    .ads__chart header span i{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:2px;vertical-align:0}
+    .ads__chart svg{display:block;width:100%;height:56px}
+    .ln{fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:400;stroke-dashoffset:400}
+    .ln--a{stroke:var(--ads-green)} .ln--b{stroke:var(--ads-blue)}
+    .area{fill:url(#gradSales);opacity:0}
+    .ads__table{margin:5px 6px 0;background:#fff;border-radius:5px;box-shadow:0 1px 2px rgba(0,0,0,.08);font-size:5.8px}
+    .row{display:grid;grid-template-columns:14px 1fr 34px 40px;align-items:center;gap:4px;padding:3px 5px;border-top:1px solid #EEF0F2}
+    .row:first-child{border-top:0;color:var(--ads-mute);font-weight:700}
+    .row b{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .row .st-on{color:var(--ads-green);font-weight:700}
+    .row span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+    .tog{width:12px;height:7px;border-radius:5px;background:var(--ads-blue);position:relative}
+    .tog::after{content:"";position:absolute;top:1px;right:1px;width:5px;height:5px;border-radius:50%;background:#fff}
+    .ads__pointer{position:absolute;width:12px;height:12px;z-index:4;left:70%;top:80%}
+    .ads__pointer svg{width:100%;height:100%}
+
+    /* ========== 3. LANDING PAGE FILTRUM ========== */
+    .browser{display:flex;flex-direction:column;height:100%;background:var(--site)}
+    .browser__bar{height:16px;flex:0 0 16px;background:#20242C;display:flex;align-items:center;gap:3px;padding:0 6px}
+    .browser__bar i{width:5px;height:5px;border-radius:50%;background:#FF5F57}
+    .browser__bar i:nth-child(2){background:#FEBC2E}.browser__bar i:nth-child(3){background:#28C840}
+    .browser__url{margin-left:8px;flex:1;height:10px;border-radius:5px;background:#0F1217;font-size:6px;color:#C9D1D9;display:flex;align-items:center;padding-left:6px;gap:3px;font-family:system-ui,sans-serif}
+    .browser__url svg{width:6px;height:6px}
+    .lp{position:relative;flex:1;overflow:hidden;font-family:"Manrope",sans-serif;color:#fff;
       background:
-        radial-gradient(80% 120% at 85% 50%, rgba(198,244,50,.22), transparent 60%),
-        var(--card);
-    }
-    .card--main .card__btn{background:var(--lime);color:#0A1430}
+        radial-gradient(60% 70% at 78% 45%, rgba(30,91,255,.35), transparent 70%),
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 0 0/14px 14px,
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px) 0 0/14px 14px,
+        var(--site)}
+    .lp__nav{display:flex;align-items:center;justify-content:space-between;padding:6px 10px}
+    .lp__nav img{width:52px}
+    .lp__nav nav{display:flex;gap:7px;font-size:5px;font-weight:600;color:#C9D3EA}
+    .lp__wbtn{font-size:5px;font-weight:800;background:var(--lime);color:#0A1430;border-radius:20px;padding:3px 6px;display:flex;align-items:center;gap:2px}
+    .lp__wbtn svg{width:6px;height:6px}
+    .lp__hero{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:6px;padding:6px 10px 0}
+    .lp__eyebrow{font-size:5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
+    .lp__h1{margin-top:4px;font-size:14.5px;line-height:1.05;font-weight:800}
+    .lp__h1 span{color:var(--lime)}
+    .lp__sub{margin-top:5px;font-size:5.6px;line-height:1.4;color:#C9D3EA}
+    .lp__ctas{display:flex;gap:4px;margin-top:7px}
+    .lp__cta{position:relative;font-size:5.6px;font-weight:800;padding:4px 7px;border-radius:20px;display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap}
+    .lp__cta svg{width:6px;height:6px}
+    .lp__cta--p{background:var(--lime);color:#0A1430}
+    .lp__cta--g{border:1px solid rgba(255,255,255,.5)}
+    .lp__checks{display:flex;flex-wrap:wrap;gap:2px 6px;margin-top:7px;font-size:4.8px;color:#C9D3EA;list-style:none}
+    .lp__checks li::before{content:"✓ ";color:var(--lime);font-weight:800}
+    .orbit{position:relative;width:104px;height:104px;margin:0 auto}
+    .orbit__ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(198,244,50,.6)}
+    .orbit__ring--2{inset:8px;border:1px solid rgba(30,91,255,.8);border-left-color:transparent}
+    .orbit__photo{position:absolute;inset:16px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(255,255,255,.4)}
+    .orbit__photo img{width:100%;height:100%;object-fit:cover}
+    .chip{position:absolute;font-size:5px;font-weight:700;background:rgba(10,20,48,.9);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:2px 5px;white-space:nowrap}
+    .chip--a{top:6px;left:-10px}.chip--b{bottom:16px;right:-14px}.chip--c{bottom:-2px;left:2px}
+    .notif{position:absolute;right:8px;bottom:10px;width:112px;display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.95);color:#0A1430;border-radius:7px;padding:4px 5px;box-shadow:0 6px 16px rgba(0,0,0,.4);opacity:0}
+    .notif > span{width:13px;height:13px;flex:0 0 13px;border-radius:50%;background:var(--wa-green);display:grid;place-items:center;color:#fff}
+    .notif svg{width:8px;height:8px}
+    .notif p{font-size:5px;line-height:1.3}
+    .notif b{display:block;font-size:5.4px}
+    .cursor{position:absolute;width:12px;height:14px;z-index:6;left:85%;top:85%}
+    .cursor svg{width:100%;height:100%;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
+    .ripple{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:rgba(255,255,255,.8);opacity:0}
+
+    /* ========== 4. EDIÇÃO (editor de vídeo mobile) ========== */
+    .cc{background:var(--cc-bg);color:#fff}
+    .cc__top{display:flex;align-items:center;justify-content:space-between;padding:2px 8px 4px;font-size:7.5px}
+    .cc__top b{font-weight:600;color:#ddd}
+    .cc__export{background:#fff;color:#000;font-weight:700;border-radius:4px;padding:2px 6px;font-size:7px}
+    .cc__preview{position:relative;height:118px;background:#000;display:flex;justify-content:center}
+    .cc__frame{position:relative;width:66px;height:118px;overflow:hidden}
+    .cc__frame img{width:100%;height:100%;object-fit:cover}
+    .cc__cap{position:absolute;left:3px;right:3px;bottom:22px;text-align:center;font-family:"Manrope",sans-serif;font-weight:800;font-size:8.5px;line-height:1.05;text-transform:uppercase;text-shadow:0 1px 2px #000}
+    .cc__cap span{display:inline-block;opacity:0}
+    .cc__cap span.hl{color:var(--lime)}
+    .cc__bar{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;font-size:6.5px;color:#aaa;font-variant-numeric:tabular-nums}
+    .cc__bar svg{width:9px;height:9px;color:#fff}
+    .cc__tl{position:relative;height:96px;overflow:hidden;background:var(--cc-bg)}
+    .cc__tracks{position:absolute;top:0;left:50%;display:flex;flex-direction:column;gap:4px;width:420px}
+    .cc__ruler{height:9px;font-size:5.5px;color:#777;display:flex;gap:0;white-space:nowrap}
+    .cc__ruler span{flex:0 0 60px}
+    .tr{display:flex;gap:2px;height:13px}
+    .tr--video{height:24px}
+    .clip{height:100%;border-radius:3px;flex:0 0 auto}
+    .clip--v{background:url("../assets/img/links/video-frame.jpg") 0 30%/18px auto repeat-x;border:1px solid rgba(255,255,255,.25)}
+    .clip--t{background:var(--cc-text);font-size:5.5px;font-weight:700;display:flex;align-items:center;padding:0 4px;white-space:nowrap;overflow:hidden}
+    .clip--a{background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,.35) 0 1px, transparent 1px 3px),
+        linear-gradient(0deg, transparent 20%, rgba(255,255,255,.25) 50%, transparent 80%),
+        var(--cc-audio)}
+    .clip--f{background:var(--cc-fx);font-size:5.5px;font-weight:700;color:#3a1d00;display:flex;align-items:center;padding:0 4px}
+    .cc__head{position:absolute;top:6px;height:60px;left:50%;width:1.5px;margin-left:-.75px;background:#fff;z-index:3}
+    .cc__head::before{content:"";position:absolute;top:-2px;left:-2.5px;width:6.5px;height:6.5px;border-radius:50%;background:#fff}
+    .cc__tools{position:absolute;left:0;right:0;bottom:0;height:34px;display:flex;justify-content:space-around;align-items:center;background:var(--cc-panel)}
+    .cc__tools span{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:5.5px;color:#ccc}
+    .cc__tools svg{width:10px;height:10px;color:#fff}
+    .cc__tools span.on{color:var(--lime)} .cc__tools span.on svg{color:var(--lime)}
+
+    /* ========== 5. INSTAGRAM ========== */
+    .ig{background:#000;color:#F5F5F5}
+    .ig__head{display:flex;align-items:center;justify-content:space-between;padding:2px 10px 6px;font-size:9.5px;font-weight:700}
+    .ig__head svg{width:10px;height:10px}
+    .ig__prof{display:flex;align-items:center;gap:9px;padding:0 10px}
+    .ig__ring{position:relative;width:46px;height:46px;flex:0 0 46px;border-radius:50%;padding:2px;
+      background:conic-gradient(from 0deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5,#FEDA75)}
+    .ig__ring img{width:100%;height:100%;border-radius:50%;border:2px solid #000;object-fit:cover}
+    .ig__name b{display:block;font-size:8.5px}
+    .ig__name small{display:block;font-size:7px;color:#A8A8A8;margin-top:1px}
+    .ig__bio{padding:6px 10px 0;font-size:7px;line-height:1.38}
+    .ig__bio span{display:flex;align-items:center;gap:2px;margin-top:1px;color:var(--ig-link);font-weight:600}
+    .ig__bio span svg{width:7px;height:7px}
+    .ig__btns{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:7px 10px 0}
+    .ig__btns > span{position:relative;height:17px;border-radius:5px;background:var(--ig-gray);font-size:7px;font-weight:700;display:grid;place-items:center;overflow:hidden}
+    .ig__btns > span.ig__follow{background:var(--ig-blue);transition:background .25s}
+    .ig__btns > span.ig__follow.done{background:var(--ig-gray)}
+    .ig__hl{display:flex;gap:8px;padding:8px 10px 0}
+    .ig__hl span{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:5.6px;color:#ddd}
+    .ig__hl i{width:24px;height:24px;border-radius:50%;border:1px solid #444;padding:2px;display:block}
+    .ig__hl i::after{content:"";display:block;width:100%;height:100%;border-radius:50%;background:var(--navy)}
+    .ig__hl span:nth-child(2) i::after{background:var(--lime)}
+    .ig__hl span:nth-child(3) i::after{background:var(--cobalt)}
+    .ig__hl span:nth-child(4) i::after{background:#fff}
+    .ig__tabs{display:flex;justify-content:space-around;margin-top:8px;border-bottom:1px solid #262626;padding-bottom:4px}
+    .ig__tabs svg{width:9px;height:9px;color:#777}
+    .ig__tabs svg:first-child{color:#fff}
+    .ig__gridwrap{position:relative;height:120px;overflow:hidden}
+    .ig__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;padding-top:1.5px}
+    .post{aspect-ratio:4/5;padding:5px;font-family:"Manrope",sans-serif;font-weight:800;font-size:6.2px;line-height:1.1;display:flex;align-items:flex-end;position:relative}
+    .post--n{background:var(--site)} .post--l{background:var(--lime);color:#0A1430} .post--c{background:var(--cobalt)} .post--w{background:#fff;color:#0A1430}
+    .post--p{background:url("../assets/img/links/foto-hero.jpg") center/cover}
+    .post--r::after{content:"";position:absolute;top:4px;right:4px;width:6px;height:6px;border:1px solid currentColor;border-radius:2px}
+    .tap{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:rgba(255,255,255,.7);opacity:0;z-index:4}
+
+    /* ---------- ANIMAÇÕES ---------- */
     @media (prefers-reduced-motion:no-preference){
+      .label svg{animation:bob 1.8s ease-in-out infinite}
+      @keyframes bob{50%{transform:translateY(4px)}}
       .card--main{animation:pulse 2.6s ease-in-out infinite}
-      @keyframes pulse{
-        0%,100%{box-shadow:0 0 0 0 rgba(198,244,50,.0)}
-        50%{box-shadow:0 0 0 6px rgba(198,244,50,.16)}
-      }
+      @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(198,244,50,0)}50%{box-shadow:0 0 0 6px rgba(198,244,50,.16)}}
+
+      /* tráfego */
+      .is-on .ln{animation:draw 2.4s ease-out forwards}
+      .is-on .ln--b{animation-delay:.3s}
+      .is-on .area{animation:fadein 1s 1.6s forwards}
+      @keyframes draw{to{stroke-dashoffset:0}}
+      @keyframes fadein{to{opacity:.9}}
+      .is-on .ads__pointer{animation:hover 6s ease-in-out infinite}
+      @keyframes hover{0%{left:70%;top:85%}30%{left:58%;top:42%}55%{left:80%;top:30%}80%{left:40%;top:75%}100%{left:70%;top:85%}}
+
+      /* landing */
+      .orbit__ring{animation:spin 14s linear infinite}
+      .orbit__ring--2{animation:spin 6s linear infinite reverse}
+      @keyframes spin{to{transform:rotate(360deg)}}
+      .chip{animation:float 3.4s ease-in-out infinite}
+      .chip--b{animation-delay:-1.2s}.chip--c{animation-delay:-2.2s}
+      @keyframes float{50%{transform:translateY(-3px)}}
+      .is-on .cursor{animation:cur 6s ease-in-out infinite}
+      @keyframes cur{0%{left:85%;top:85%}35%,52%{left:13%;top:68%}75%{left:60%;top:60%}100%{left:85%;top:85%}}
+      .is-on .lp__cta--p .ripple{animation:rip 6s ease-out infinite}
+      @keyframes rip{0%,40%{opacity:0;transform:scale(1)}42%{opacity:.9;transform:scale(1)}55%{opacity:0;transform:scale(9)}100%{opacity:0}}
+      .is-on .notif{animation:notif 6s ease-out infinite}
+      @keyframes notif{0%,48%{opacity:0;transform:translateY(8px)}55%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-4px)}}
+
+      /* edição */
+      .is-on .cc__tracks{animation:scrub 7s linear infinite}
+      @keyframes scrub{from{transform:translateX(0)}to{transform:translateX(-330px)}}
+      .is-on .cc__frame img{animation:kb 7s ease-in-out infinite}
+      @keyframes kb{0%{transform:scale(1)}45%{transform:scale(1.18)}50%{transform:scale(1.32) translateY(4px)}100%{transform:scale(1)}}
+      .is-on .cc__cap span{animation:word 7s infinite}
+      .cc__cap span:nth-child(2){animation-delay:.35s}.cc__cap span:nth-child(3){animation-delay:.7s}
+      .cc__cap span:nth-child(4){animation-delay:1.05s}.cc__cap span:nth-child(5){animation-delay:1.4s}
+      .cc__cap span:nth-child(6){animation-delay:1.75s}.cc__cap span:nth-child(7){animation-delay:2.1s}
+      @keyframes word{0%{opacity:0;transform:scale(1.6)}4%{opacity:1;transform:scale(1)}60%{opacity:1}66%,100%{opacity:0}}
+
+      /* instagram */
+      .ig__ring{animation:spin 6s linear infinite}
+      .ig__ring img{animation:spin 6s linear infinite reverse}
+      .is-on .ig__grid{animation:feed 9s ease-in-out infinite}
+      @keyframes feed{0%,20%{transform:translateY(0)}55%,75%{transform:translateY(-66px)}100%{transform:translateY(0)}}
+      .is-on .ig__follow .tap{animation:tap 9s ease-out infinite}
+      @keyframes tap{0%,10%{opacity:0;transform:scale(.5)}12%{opacity:.9;transform:scale(1)}20%{opacity:0;transform:scale(3)}100%{opacity:0}}
     }
-
-    /* ---------- ILUSTRAÇÕES (CSS puro, trocáveis por foto) ---------- */
-    /* chat */
-    .art-chat{width:120px;display:grid;gap:7px}
-    .art-chat i{display:block;height:22px;border-radius:12px 12px 12px 4px;background:rgba(255,255,255,.14)}
-    .art-chat i:nth-child(1){width:78%}
-    .art-chat i:nth-child(2){width:62%;margin-left:auto;border-radius:12px 12px 4px 12px;background:var(--lime)}
-    .art-chat i:nth-child(3){width:88%}
-    .art-chat i:nth-child(4){width:50%;margin-left:auto;border-radius:12px 12px 4px 12px;background:var(--lime)}
-    .art-whats{
-      position:absolute;right:6px;bottom:-4px;width:46px;height:46px;border-radius:50%;
-      background:#25D366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.4)
+    @media (prefers-reduced-motion:reduce){
+      .ln{stroke-dashoffset:0}.area{opacity:.9}.notif{opacity:1}.cc__cap span{opacity:1}
     }
-    .art-whats svg{width:26px;height:26px;color:#fff}
-
-    /* gráfico tráfego */
-    .art-bars{display:flex;align-items:flex-end;gap:8px;height:96px}
-    .art-bars i{display:block;width:16px;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,var(--cobalt),var(--navy))}
-    .art-bars i:nth-child(1){height:28%}
-    .art-bars i:nth-child(2){height:44%}
-    .art-bars i:nth-child(3){height:38%}
-    .art-bars i:nth-child(4){height:66%}
-    .art-bars i:nth-child(5){height:100%;background:linear-gradient(180deg,var(--lime),#7FA51C)}
-    .art-target{position:absolute;top:2px;left:10px;width:40px;height:40px;color:var(--lime)}
-
-    /* navegador landing */
-    .art-browser{width:132px;height:100px;border-radius:10px;border:1.5px solid rgba(255,255,255,.7);overflow:hidden;background:#0A1430}
-    .art-browser__bar{height:16px;background:rgba(255,255,255,.12);display:flex;gap:4px;align-items:center;padding-left:7px}
-    .art-browser__bar i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6)}
-    .art-browser__body{padding:9px;display:grid;gap:6px}
-    .art-browser__body b{display:block;height:10px;width:80%;border-radius:3px;background:#fff}
-    .art-browser__body s{display:block;height:6px;width:60%;border-radius:3px;background:rgba(255,255,255,.35)}
-    .art-browser__body u{display:block;margin-top:4px;height:18px;width:62px;border-radius:5px;background:var(--lime)}
-
-    /* celular vídeo */
-    .art-phone{width:70px;height:116px;border-radius:14px;border:2px solid rgba(255,255,255,.75);
-      background:linear-gradient(160deg,var(--cobalt),var(--navy) 70%);position:relative;overflow:hidden}
-    .art-phone::before{content:"";position:absolute;top:5px;left:50%;width:22px;height:5px;margin-left:-11px;border-radius:5px;background:rgba(0,0,0,.5)}
-    .art-play{position:absolute;inset:0;display:grid;place-items:center}
-    .art-play span{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center}
-    .art-play span::after{content:"";border-left:11px solid #0A1430;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
-    .art-tl{position:absolute;left:8px;right:8px;bottom:9px;height:4px;border-radius:4px;background:rgba(255,255,255,.3)}
-    .art-tl::after{content:"";position:absolute;left:0;top:0;bottom:0;width:58%;border-radius:4px;background:var(--lime)}
-
-    /* grade insta */
-    .art-grid{display:grid;grid-template-columns:repeat(3,34px);gap:4px}
-    .art-grid i{display:block;height:34px;border-radius:5px;background:rgba(255,255,255,.12)}
-    .art-grid i:nth-child(2),.art-grid i:nth-child(6){background:var(--cobalt)}
-    .art-grid i:nth-child(4),.art-grid i:nth-child(8){background:var(--lime)}
-    .art-grid i:nth-child(5){background:#fff}
-
-    /* site */
-    .art-logo{width:118px;opacity:.95}
 
     /* ---------- RODAPÉ ---------- */
     .foot{margin-top:30px;text-align:center}
     .foot__social{display:flex;justify-content:center;gap:12px}
-    .foot__social a{
-      width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);
-      display:grid;place-items:center;transition:border-color .2s,background .2s
-    }
+    .foot__social a{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:border-color .2s,background .2s}
     .foot__social a:hover{border-color:var(--lime);background:rgba(198,244,50,.08)}
     .foot__social svg{width:22px;height:22px}
     .foot__logo{width:150px;margin:22px auto 8px;opacity:.85}
@@ -230,7 +371,7 @@
     .st{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
     @media (max-width:360px){
-      .card__title{font-size:22px}
+      .card__title{font-size:21px}
       .hero{height:380px}
     }
   </style>
@@ -258,6 +399,8 @@
       </div>
 
       <ul class="cards">
+
+        <!-- 1. WHATSAPP -->
         <li>
           <a class="card card--main" target="_blank" rel="noopener"
              href="https://wa.me/5598982787460?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20mais%20clientes."
@@ -267,42 +410,129 @@
               <span class="card__btn">Chamar no Whats</span>
             </div>
             <div class="card__art" aria-hidden="true">
-              <div class="art-chat"><i></i><i></i><i></i><i></i></div>
-              <span class="art-whats"><svg><use href="#i-whats"/></svg></span>
+              <div class="mock" data-w="150" data-h="304">
+                <div class="phone"><div class="phone__screen wa">
+                  <span class="phone__island"></span>
+                  <div class="status" style="background:var(--wa-head)"><span>9:41</span><i></i></div>
+                  <div class="wa__head">
+                    <span class="wa__back">‹</span>
+                    <span class="wa__av"><img src="../assets/img/links/avatar.jpg" alt=""></span>
+                    <span class="wa__who"><b>Filtrum Marketing</b><small id="waStatus">online</small></span>
+                    <span class="wa__ico"><svg viewBox="0 0 24 24"><path class="st" d="M3 7h12v10H3zM15 10l6-3v10l-6-3"/></svg><svg viewBox="0 0 24 24"><path class="st" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+                  </div>
+                  <div class="wa__body" id="waBody"><span class="wa__day">HOJE</span></div>
+                  <div class="wa__input">
+                    <span class="wa__field">Mensagem</span>
+                    <span class="wa__mic"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-2.1a7 7 0 0 0 6-6.9Z"/></svg></span>
+                  </div>
+                </div></div>
+              </div>
             </div>
           </a>
         </li>
 
+        <!-- 2. TRÁFEGO PAGO -->
         <li>
-          <a class="card card--rev" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=trafego#trafego-pago" data-track="links-trafego">
+          <a class="card card--rev card--wide" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=trafego#trafego-pago" data-track="links-trafego">
             <div class="card__txt">
               <p class="card__title">Tráfego pago</p>
               <p class="card__sub">Meta Ads e Google Ads</p>
               <span class="card__btn">Saiba mais</span>
             </div>
             <div class="card__art" aria-hidden="true">
-              <svg class="art-target"><use href="#i-target"/></svg>
-              <div class="art-bars"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="mock" data-w="330" data-h="216">
+                <div class="laptop">
+                  <div class="laptop__lid"><div class="laptop__screen">
+                    <div class="ads">
+                      <div class="ads__side"><i></i><i class="on"></i><i></i><i></i><i></i></div>
+                      <div class="ads__main">
+                        <div class="ads__top">Gerenciador de anúncios <span>Últimos 30 dias ▾</span></div>
+                        <div class="ads__kpis">
+                          <div class="kpi"><small>Valor investido</small><b data-count="2480" data-fmt="brl">R$ 2.480</b><em>▲ 12%</em></div>
+                          <div class="kpi"><small>Conversas iniciadas</small><b data-count="436">436</b><em>▲ 31%</em></div>
+                          <div class="kpi"><small>Custo por conversa</small><b data-count="5.69" data-fmt="brl2">R$ 5,69</b><em>▼ 18%</em></div>
+                          <div class="kpi"><small>Vendas atribuídas</small><b data-count="21900" data-fmt="brl">R$ 21.900</b><em>▲ 44%</em></div>
+                        </div>
+                        <div class="ads__chart">
+                          <header>Desempenho <span><span><i style="background:var(--ads-green)"></i>Vendas</span><span><i style="background:var(--ads-blue)"></i>Conversas</span></span></header>
+                          <svg viewBox="0 0 260 56" preserveAspectRatio="none">
+                            <defs><linearGradient id="gradSales" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#31A24C" stop-opacity=".35"/><stop offset="1" stop-color="#31A24C" stop-opacity="0"/></linearGradient></defs>
+                            <path d="M0 14H260M0 28H260M0 42H260" stroke="#EEF0F2" stroke-width="1" fill="none"/>
+                            <path class="area" d="M0 50 L22 46 L44 47 L66 40 L88 41 L110 33 L132 35 L154 26 L176 24 L198 17 L220 15 L242 9 L260 6 L260 56 L0 56Z"/>
+                            <path class="ln ln--a" d="M0 50 L22 46 L44 47 L66 40 L88 41 L110 33 L132 35 L154 26 L176 24 L198 17 L220 15 L242 9 L260 6"/>
+                            <path class="ln ln--b" d="M0 44 L22 42 L44 43 L66 38 L88 39 L110 35 L132 36 L154 31 L176 30 L198 27 L220 26 L242 22 L260 21"/>
+                          </svg>
+                        </div>
+                        <div class="ads__table">
+                          <div class="row"><span></span><span>Campanha</span><span>Status</span><span>Resultados</span></div>
+                          <div class="row"><span class="tog"></span><b>[WPP] Conversas · Clínica</b><span class="st-on">● Ativa</span><span>287 conversas</span></div>
+                          <div class="row"><span class="tog"></span><b>[LEADS] Formulário</b><span class="st-on">● Ativa</span><span>112 leads</span></div>
+                          <div class="row"><span class="tog"></span><b>[RMKT] Visitantes 30d</b><span class="st-on">● Ativa</span><span>37 vendas</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="ads__pointer"><svg viewBox="0 0 24 24"><path d="M4 2l15 11-6.5 1.2L16 21l-3 1.4-3.6-7L4 19z" fill="#000" stroke="#fff" stroke-width="1.6"/></svg></span>
+                  </div></div>
+                  <div class="laptop__base"></div>
+                </div>
+              </div>
             </div>
+            <span class="demo-tag">dados ilustrativos</span>
           </a>
         </li>
 
+        <!-- 3. LANDING PAGES -->
         <li>
-          <a class="card" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=landing#landing-pages" data-track="links-landing">
+          <a class="card card--wide" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=landing#landing-pages" data-track="links-landing">
             <div class="card__txt">
               <p class="card__title">Landing pages</p>
               <p class="card__sub">Páginas que vendem</p>
               <span class="card__btn">Saiba mais</span>
             </div>
             <div class="card__art" aria-hidden="true">
-              <div class="art-browser">
-                <div class="art-browser__bar"><i></i><i></i><i></i></div>
-                <div class="art-browser__body"><b></b><s></s><s></s><u></u></div>
+              <div class="mock" data-w="330" data-h="216">
+                <div class="laptop">
+                  <div class="laptop__lid"><div class="laptop__screen">
+                    <div class="browser">
+                      <div class="browser__bar"><i></i><i></i><i></i>
+                        <span class="browser__url"><svg viewBox="0 0 24 24"><path class="st" d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg>filtrummkt.com.br</span>
+                      </div>
+                      <div class="lp">
+                        <div class="lp__nav">
+                          <img src="../assets/img/links/logo-branco.png" alt="">
+                          <nav><span>Serviços</span><span>Como funciona</span><span>Para quem</span><span>Dúvidas</span></nav>
+                          <span class="lp__wbtn"><svg><use href="#i-whats"/></svg>Falar no WhatsApp</span>
+                        </div>
+                        <div class="lp__hero">
+                          <div>
+                            <p class="lp__eyebrow">Marketing digital com foco em resultado</p>
+                            <p class="lp__h1">Anúncios que viram <span>clientes</span> no seu WhatsApp</p>
+                            <p class="lp__sub">Tráfego pago, landing pages, vídeos e social media. Contrate um serviço ou combine vários: você escolhe.</p>
+                            <div class="lp__ctas">
+                              <span class="lp__cta lp__cta--p"><svg><use href="#i-whats"/></svg>Quero mais clientes<i class="ripple"></i></span>
+                              <span class="lp__cta lp__cta--g">Ver serviços</span>
+                            </div>
+                            <ul class="lp__checks"><li>Meta Ads e Google Ads</li><li>Sem pacote obrigatório</li><li>Relatórios de resultado</li></ul>
+                          </div>
+                          <div class="orbit">
+                            <span class="orbit__ring"></span><span class="orbit__ring orbit__ring--2"></span>
+                            <span class="orbit__photo"><img src="../assets/img/links/foto-hero.jpg" alt=""></span>
+                            <span class="chip chip--a">Meta Ads</span><span class="chip chip--b">Google Ads</span><span class="chip chip--c">Landing Page</span>
+                          </div>
+                        </div>
+                        <div class="notif"><span><svg><use href="#i-whats"/></svg></span><p><b>Nova mensagem</b>Oi! Vi seu anúncio e quero um orçamento.</p></div>
+                        <span class="cursor"><svg viewBox="0 0 24 24"><path d="M4 2l15 11-6.5 1.2L16 21l-3 1.4-3.6-7L4 19z" fill="#fff" stroke="#000" stroke-width="1.4"/></svg></span>
+                      </div>
+                    </div>
+                  </div></div>
+                  <div class="laptop__base"></div>
+                </div>
               </div>
             </div>
           </a>
         </li>
 
+        <!-- 4. EDIÇÃO DE VÍDEOS -->
         <li>
           <a class="card card--rev" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=videos#edicao-de-videos" data-track="links-videos">
             <div class="card__txt">
@@ -311,11 +541,42 @@
               <span class="card__btn">Saiba mais</span>
             </div>
             <div class="card__art" aria-hidden="true">
-              <div class="art-phone"><div class="art-play"><span></span></div><div class="art-tl"></div></div>
+              <div class="mock" data-w="150" data-h="304">
+                <div class="phone"><div class="phone__screen cc">
+                  <span class="phone__island"></span>
+                  <div class="status"><span>9:41</span><i></i></div>
+                  <div class="cc__top"><span>✕</span><b>1080P ▾</b><span class="cc__export">Exportar</span></div>
+                  <div class="cc__preview">
+                    <div class="cc__frame">
+                      <img src="../assets/img/links/video-frame.jpg" alt="">
+                      <p class="cc__cap"><span>Anúncios</span> <span>que</span> <span>viram</span> <span class="hl">clientes</span> <span>no</span> <span>seu</span> <span class="hl">Whats</span></p>
+                    </div>
+                  </div>
+                  <div class="cc__bar"><span id="ccTime">00:00 / 00:15</span><svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg><span>↶ ↷</span></div>
+                  <div class="cc__tl">
+                    <span class="cc__head"></span>
+                    <div class="cc__tracks">
+                      <div class="cc__ruler"><span>00:00</span><span>00:02</span><span>00:04</span><span>00:06</span><span>00:08</span><span>00:10</span><span>00:12</span></div>
+                      <div class="tr tr--video"><span class="clip clip--v" style="width:110px"></span><span class="clip clip--v" style="width:90px;background-position:-8px 60%"></span><span class="clip clip--v" style="width:120px"></span><span class="clip clip--v" style="width:100px;background-position:-4px 50%"></span></div>
+                      <div class="tr"><span class="clip clip--t" style="width:70px;margin-left:10px">T  Anúncios que…</span><span class="clip clip--t" style="width:60px">T  viram clientes</span><span class="clip clip--t" style="width:80px;margin-left:30px">T  no seu Whats</span></div>
+                      <div class="tr"><span class="clip clip--f" style="width:44px;margin-left:96px">✦ Zoom</span><span class="clip clip--f" style="width:40px;margin-left:80px">✦ Shake</span></div>
+                      <div class="tr"><span class="clip clip--a" style="width:420px"></span></div>
+                    </div>
+                  </div>
+                  <div class="cc__tools">
+                    <span><svg viewBox="0 0 24 24"><g class="st"><circle cx="6" cy="6.5" r="2.5"/><circle cx="6" cy="17.5" r="2.5"/><path d="M8 8.2 20 18M8 15.8 20 6"/></g></svg>Editar</span>
+                    <span><svg viewBox="0 0 24 24"><path class="st" d="M9 18V5l11-2v13M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3Zm11-2a3 3 0 1 1-3-3 3 3 0 0 1 3 3Z"/></svg>Áudio</span>
+                    <span class="on"><svg viewBox="0 0 24 24"><path class="st" d="M5 6V4h14v2M12 4v16M9 20h6"/></svg>Texto</span>
+                    <span><svg viewBox="0 0 24 24"><path class="st" d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>Efeitos</span>
+                    <span><svg viewBox="0 0 24 24"><g class="st"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 12.5h4M13 12.5h4M7 15.5h7"/></g></svg>Legendas</span>
+                  </div>
+                </div></div>
+              </div>
             </div>
           </a>
         </li>
 
+        <!-- 5. SOCIAL MEDIA -->
         <li>
           <a class="card" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=social#social-media" data-track="links-social">
             <div class="card__txt">
@@ -324,20 +585,55 @@
               <span class="card__btn">Saiba mais</span>
             </div>
             <div class="card__art" aria-hidden="true">
-              <div class="art-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="mock" data-w="150" data-h="304">
+                <div class="phone"><div class="phone__screen ig">
+                  <span class="phone__island"></span>
+                  <div class="status"><span>9:41</span><i></i></div>
+                  <div class="ig__head"><span>‹</span><span>filtrum.mkt</span><svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></div>
+                  <div class="ig__prof">
+                    <span class="ig__ring"><img src="../assets/img/links/avatar.jpg" alt=""></span>
+                    <span class="ig__name"><b>Filtrum Marketing Digital</b><small>Agência de marketing</small></span>
+                  </div>
+                  <p class="ig__bio">
+                    Anúncios que viram clientes no seu WhatsApp<br>
+                    Tráfego pago · Landing pages · Vídeos · Social media<br>
+                    Contrate só o que você precisa 👇
+                    <span><svg viewBox="0 0 24 24"><path class="st" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>filtrummkt.com.br/links</span>
+                  </p>
+                  <div class="ig__btns"><span class="ig__follow" id="igFollow"><em id="igFollowTxt" style="font-style:normal">Seguir</em><i class="tap"></i></span><span>Mensagem</span></div>
+                  <div class="ig__hl"><span><i></i>Serviços</span><span><i></i>Tráfego</span><span><i></i>Vídeos</span><span><i></i>Contato</span></div>
+                  <div class="ig__tabs">
+                    <svg viewBox="0 0 24 24"><path class="st" d="M4 4h16v16H4zM4 9.3h16M4 14.6h16M9.3 4v16M14.6 4v16"/></svg>
+                    <svg viewBox="0 0 24 24"><g class="st"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></g></svg>
+                    <svg viewBox="0 0 24 24"><g class="st"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M7 19c1-2.5 3-3.5 5-3.5s4 1 5 3.5"/></g></svg>
+                  </div>
+                  <div class="ig__gridwrap"><div class="ig__grid">
+                    <span class="post post--n post--r">Seu negócio é bom. Só falta gente saber.</span>
+                    <span class="post post--p"></span>
+                    <span class="post post--l">Contrate só o que você precisa</span>
+                    <span class="post post--c post--r">Impulsionar não é anunciar</span>
+                    <span class="post post--w">Landing page que vende</span>
+                    <span class="post post--n">Como funciona: 4 passos</span>
+                    <span class="post post--l post--r">Reels que prendem nos 3 primeiros segundos</span>
+                    <span class="post post--c">Meta Ads ou Google Ads?</span>
+                    <span class="post post--p"></span>
+                  </div></div>
+                </div></div>
+              </div>
             </div>
           </a>
         </li>
 
+        <!-- 6. SITE -->
         <li>
-          <a class="card card--rev" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=site" data-track="links-site">
+          <a class="card card--rev" style="min-height:150px" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_content=site" data-track="links-site">
             <div class="card__txt">
               <p class="card__title">Conheça o site</p>
               <p class="card__sub">Como funciona, para quem é e dúvidas</p>
               <span class="card__btn">Saiba mais</span>
             </div>
-            <div class="card__art" aria-hidden="true">
-              <img class="art-logo" src="../assets/img/links/logo-branco.png" alt="" width="760" height="229" loading="lazy">
+            <div class="card__art" aria-hidden="true" style="min-height:150px;display:grid;place-items:center">
+              <img src="../assets/img/links/logo-branco.png" alt="" width="760" height="229" loading="lazy" style="width:130px">
             </div>
           </a>
         </li>
@@ -360,12 +656,120 @@
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23a7.46 7.46 0 0 1-1.38-1.72c-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></symbol>
-    <symbol id="i-target" viewBox="0 0 24 24"><g class="st"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><path d="M12 12 20 4M16.5 4H20v3.5"/></g></symbol>
     <symbol id="i-insta" viewBox="0 0 24 24"><g class="st"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></g></symbol>
   </svg>
 
   <script>
+  (function(){
     document.getElementById('ano').textContent = new Date().getFullYear();
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* encaixa cada tela simulada no espaço do card */
+    function fit(){
+      document.querySelectorAll('.mock').forEach(function(m){
+        var box = m.parentElement.getBoundingClientRect();
+        var w = +m.dataset.w, h = +m.dataset.h;
+        var wide = m.closest('.card--wide');
+        var s = Math.min((box.width * (wide ? 1.1 : 0.98)) / w, (box.height - 24) / h);
+        m.style.setProperty('--s', s.toFixed(3));
+      });
+    }
+    fit(); window.addEventListener('resize', fit);
+
+    /* números do gerenciador */
+    function fmt(v, f){
+      if (f === 'brl') return 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+      if (f === 'brl2') return 'R$ ' + v.toFixed(2).replace('.', ',');
+      return Math.round(v).toLocaleString('pt-BR');
+    }
+    function counters(root){
+      if (reduce) return;
+      root.querySelectorAll('[data-count]').forEach(function(el){
+        var end = +el.dataset.count, f = el.dataset.fmt, t0 = null;
+        function step(t){
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / 1800, 1), e = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(end * e, f);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
+    /* anima só o que está na tela */
+    var cards = document.querySelectorAll('.card');
+    function on(card){
+      if (card.classList.contains('is-on')) return;
+      card.classList.add('is-on');
+      if (card.dataset.track === 'links-trafego') counters(card);
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (e.isIntersecting) on(e.target); });
+      }, {threshold:.25});
+      cards.forEach(function(c){ io.observe(c); });
+    } else { cards.forEach(on); }
+
+    /* conversa no WhatsApp */
+    var chat = [
+      ['in',  'Oi! Vi o anúncio de vocês no Instagram 👋'],
+      ['out', 'Oi! Que bom que chamou. Qual é o seu negócio?'],
+      ['in',  'Tenho uma clínica de estética. O Whats anda parado'],
+      ['out', 'Dá pra resolver com anúncio de mensagem. Posso te explicar numa call de 15 min?'],
+      ['in',  'Pode sim! Amanhã às 10h?'],
+      ['out', 'Fechado ✅ Te mando o link aqui']
+    ];
+    var body = document.getElementById('waBody'), st = document.getElementById('waStatus');
+    var tick = '<svg viewBox="0 0 16 11"><path fill="currentColor" d="M11.07.65 4.98 6.74 2.6 4.36 1.54 5.42l3.44 3.44 7.15-7.15zM14.4.65 8.32 6.74l-.53-.53-1.06 1.06 1.59 1.59 7.15-7.15z"/></svg>';
+    function hhmm(){ var d = new Date(); return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); }
+    function add(side, text){
+      var m = document.createElement('div');
+      m.className = 'msg msg--' + side;
+      m.innerHTML = text + '<span class="msg__meta">' + hhmm() + (side === 'out' ? tick : '') + '</span>';
+      body.appendChild(m);
+      while (body.children.length > 6) body.removeChild(body.children[1]);
+    }
+    function typing(show){
+      var t = body.querySelector('.msg--typing');
+      if (show && !t) { t = document.createElement('div'); t.className = 'msg msg--in msg--typing'; t.innerHTML = '<i></i><i></i><i></i>'; body.appendChild(t); }
+      if (!show && t) t.remove();
+    }
+    if (reduce) { chat.slice(0, 4).forEach(function(c){ add(c[0], c[1]); }); }
+    else {
+      var i = 0;
+      (function next(){
+        if (i === chat.length) {
+          setTimeout(function(){ body.querySelectorAll('.msg').forEach(function(n){ n.remove(); }); i = 0; next(); }, 2600);
+          return;
+        }
+        var c = chat[i];
+        if (c[0] === 'in') {
+          st.textContent = 'digitando…'; st.className = 'typing'; typing(true);
+          setTimeout(function(){ typing(false); st.textContent = 'online'; st.className = ''; add('in', c[1]); i++; setTimeout(next, 900); }, 1300);
+        } else {
+          setTimeout(function(){ add('out', c[1]); i++; setTimeout(next, 700); }, 900);
+        }
+      })();
+    }
+
+    /* relógio do editor de vídeo */
+    var ct = document.getElementById('ccTime');
+    if (!reduce) {
+      var t0 = Date.now();
+      setInterval(function(){
+        var s = Math.floor(((Date.now() - t0) / 1000) % 7 * 15 / 7);
+        ct.textContent = '00:' + ('0' + s).slice(-2) + ' / 00:15';
+      }, 250);
+    }
+
+    /* botão seguir */
+    var fb = document.getElementById('igFollow'), ft = document.getElementById('igFollowTxt');
+    function followCycle(){
+      setTimeout(function(){ fb.classList.add('done'); ft.textContent = 'Seguindo ▾'; }, 1100);
+      setTimeout(function(){ fb.classList.remove('done'); ft.textContent = 'Seguir'; }, 8600);
+    }
+    if (!reduce) { followCycle(); setInterval(followCycle, 9000); }
+  })();
   </script>
 </body>
 </html>
