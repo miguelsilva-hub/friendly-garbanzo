@@ -881,3 +881,16 @@ button { font: inherit; }
   .cta-final .btn--lg, .about__cta .btn--lg { width: 100%; font-size: 1rem; padding: 16px 18px; }
   .footer { padding-bottom: 104px; }
 }
+
+/* Quem somos: cards com foto */
+.about__people { grid-template-columns: 1fr 1fr; }
+.person { flex-direction: column; align-items: stretch; gap: 0; padding: 0; overflow: hidden; text-align: left; }
+.person > span:last-child { padding: 14px 16px 16px; }
+.person__photo { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; background: #000; }
+.person__photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.person__photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(180deg, transparent, rgba(7, 14, 34, .85)); }
+.person:hover .person__photo img { transform: scale(1.04); }
+@media (max-width: 860px) {
+  .person { text-align: left; padding: 0; gap: 0; }
+  .person > span:last-child { padding: 12px 12px 14px; }
+}
