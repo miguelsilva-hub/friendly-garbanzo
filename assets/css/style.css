@@ -845,3 +845,39 @@ button { font: inherit; }
   .js .reveal { opacity: 1; transform: none; filter: none; }
   .ic-trace { display: none; }
 }
+
+/* =======================================================
+   Quem está por trás
+   ======================================================= */
+.about__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 40px; align-items: start; margin-top: 44px; }
+.about__people { display: grid; gap: 16px; }
+.person { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1px solid rgba(95, 212, 255, .2); border-radius: 18px; background: rgba(11, 22, 54, .6); }
+.person__avatar { flex: none; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--navy-900); background: var(--lime); box-shadow: 0 0 0 4px rgba(212, 255, 36, .18); }
+.person strong { display: block; font-size: 1.15rem; }
+.person small { display: block; margin-top: 2px; color: var(--text-muted); font-size: .92rem; }
+.about__text p { color: var(--text-muted); font-size: 1.06rem; line-height: 1.7; }
+.about__text p + p { margin-top: 16px; }
+.about__text strong { color: var(--text); }
+.about__stats { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px; padding: 0; }
+.about__stats li { padding: 22px 18px; text-align: center; border: 1px solid rgba(212, 255, 36, .35); border-radius: 18px; background: rgba(212, 255, 36, .05); }
+.about__stats strong { display: block; font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--lime); line-height: 1.1; }
+.about__stats span { display: block; margin-top: 6px; color: var(--text-muted); font-size: .95rem; }
+.about__cta { margin-top: 44px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.about__cta p { max-width: 560px; color: var(--text-muted); font-size: 1.06rem; }
+.about__tagline { font-family: var(--font-display); font-weight: 700; color: var(--text) !important; font-size: 1.25rem !important; }
+@media (max-width: 860px) {
+  .about__grid { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+  .about__people { grid-template-columns: 1fr 1fr; }
+  .person { flex-direction: column; text-align: center; gap: 10px; padding: 18px 12px; }
+}
+@media (max-width: 560px) {
+  .about__stats { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+  .about__stats li { padding: 16px; }
+  .about__cta { margin-top: 32px; }
+}
+
+/* Ajustes de botões no celular */
+@media (max-width: 560px) {
+  .cta-final .btn--lg, .about__cta .btn--lg { width: 100%; font-size: 1rem; padding: 16px 18px; }
+  .footer { padding-bottom: 104px; }
+}
