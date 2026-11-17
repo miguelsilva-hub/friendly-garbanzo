@@ -398,7 +398,6 @@
   $$('[data-track]').forEach((el) => {
     el.addEventListener('click', () => {
       const origem = el.dataset.track;
-      if (typeof window.fbq === 'function') window.fbq('track', 'Contact', { origem });
       if (typeof window.gtag === 'function') window.gtag('event', 'clique_whatsapp', { origem });
     });
   });
