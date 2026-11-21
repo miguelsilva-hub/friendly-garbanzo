@@ -461,3 +461,10 @@
   .qcine__word{transform:translate(0,-50%)}
   .hcine .hero__visual,.hcine .hero__copy{scale:none;translate:none;opacity:1}
 }
+
+/* ===== ajustes: Google Meu Negócio, selo de bônus e item em destaque ===== */
+.cine__scene--gmb{--tint:#0d5a3a;--tint2:#3DDC84}
+.cine__badge{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:6px 12px;border-radius:999px;font:800 .78rem var(--font-body,"Manrope"),sans-serif;
+  letter-spacing:.02em;color:#0A1430;background:var(--lime);box-shadow:0 0 22px -4px rgba(212,255,36,.7)}
+.cine__badge::before{content:"★"}
+.cine__feats li.cine__feat--hl{border-color:rgba(212,255,36,.6);background:rgba(212,255,36,.12);color:#fff}

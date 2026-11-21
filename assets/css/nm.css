@@ -1,0 +1,130 @@
+/* =========================================================
+   Telas animadas novas (site e bio):
+   nm-ad    anúncio no feed que abre o WhatsApp (tráfego pago)
+   nm-gmb   perfil da empresa no Google Maps (Google Meu Negócio)
+   nm-raio  diagnóstico (Raio-X de Tráfego)
+   Desenhadas em 150 x 304 px e encaixadas por escala, como as outras.
+   ========================================================= */
+.nm-phone{position:relative;width:150px;height:304px;border-radius:26px;background:#000;padding:5px;
+  box-shadow:0 0 0 1.5px #3a3f4a,0 18px 40px rgba(0,0,0,.55);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.nm-phone *{box-sizing:border-box;margin:0;padding:0}
+.nm-phone .nm-scr{position:relative;width:100%;height:100%;border-radius:21px;overflow:hidden;background:#000;color:#fff}
+.nm-phone .nm-isl{position:absolute;top:6px;left:50%;width:46px;height:13px;margin-left:-23px;border-radius:10px;background:#000;z-index:9}
+.nm-phone .nm-st{height:24px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:8.5px;font-weight:700}
+.nm-phone .nm-st i{display:inline-block;width:14px;height:6px;border:1px solid currentColor;border-radius:2px;position:relative}
+.nm-phone .nm-st i::after{content:"";position:absolute;inset:1px 3px 1px 1px;background:currentColor;border-radius:1px}
+.nm-phone .nm-tap{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,.35);opacity:0;z-index:8}
+
+/* ---------- anúncio -> WhatsApp ---------- */
+.nm-ad .nm-scr{background:#000}
+.nm-phone .nm-ig-top{padding:2px 10px 5px;font:800 11px system-ui}
+.nm-phone .nm-ig-ph{display:flex;align-items:center;gap:6px;padding:4px 8px}
+.nm-phone .nm-ig-av{width:18px;height:18px;border-radius:50%;padding:1.5px;background:conic-gradient(#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5,#FEDA75)}
+.nm-phone .nm-ig-av b{display:block;width:100%;height:100%;border-radius:50%;background:#2a2f3a;border:1px solid #000}
+.nm-phone .nm-ig-nm{font-size:7px;line-height:1.2}.nm-phone .nm-ig-nm b{display:block;font-size:7.5px}.nm-phone .nm-ig-nm small{color:#aaa;font-size:6px}
+.nm-phone .nm-ig-img{height:118px;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,#1558C9,#0B1B42 60%,#2a5a00)}
+.nm-phone .nm-ig-img div{font:800 15px system-ui;line-height:1.05}
+.nm-phone .nm-ig-img small{display:block;font:700 7px system-ui;margin-top:5px;color:#D4FF24}
+.nm-phone .nm-ig-cta{display:flex;align-items:center;justify-content:space-between;padding:7px 8px;background:#1a1d24;font-size:7.5px;font-weight:600}
+.nm-phone .nm-ig-cta span{display:flex;align-items:center;gap:4px}
+.nm-phone .nm-ig-cta svg{width:9px;height:9px;color:#25D366}
+.nm-phone .nm-ig-acts{padding:6px 8px;font-size:10px;letter-spacing:4px}
+.nm-phone .nm-ig-cap{padding:0 8px;font-size:6.5px;color:#ccc;line-height:1.4}
+.nm-phone .nm-wa{position:absolute;left:0;right:0;bottom:0;top:24px;background:#EFE7DE;color:#111B21;transform:translateY(102%);z-index:6}
+.nm-phone .nm-wa-hd{display:flex;align-items:center;gap:6px;padding:6px 8px;background:#F0F2F5;border-bottom:1px solid #d9dbde}
+.nm-phone .nm-wa-av{width:20px;height:20px;border-radius:50%;background:#c4cbd2;display:grid;place-items:center;font-size:10px}
+.nm-phone .nm-wa-hd b{display:block;font-size:8.5px;font-weight:600}
+.nm-phone .nm-wa-hd small{display:block;font-size:6.5px;color:#667781}
+.nm-phone .nm-wa-hd small.nm-typing{color:#00A884;opacity:0;position:absolute}
+.nm-phone .nm-wa-bd{position:absolute;top:34px;left:0;right:0;bottom:28px;padding:8px;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;
+  background-image:radial-gradient(rgba(0,0,0,.05) 1.2px,transparent 1.6px);background-size:12px 12px}
+.nm-phone .nm-bub{align-self:flex-end;max-width:86%;background:#D9FDD3;border-radius:7px;border-top-right-radius:2px;padding:5px 7px 4px;font-size:7.5px;line-height:1.35;opacity:0;box-shadow:0 1px 1px rgba(0,0,0,.1)}
+.nm-phone .nm-bub small{display:block;text-align:right;font-size:5.5px;color:#667781;margin-top:2px}
+.nm-phone .nm-wa-ft{position:absolute;left:0;right:0;bottom:0;height:28px;display:flex;align-items:center;gap:5px;padding:0 6px;background:#F0F2F5}
+.nm-phone .nm-wa-ft span{flex:1;height:18px;border-radius:10px;background:#fff;font-size:7px;color:#8696A0;display:flex;align-items:center;padding-left:8px}
+.nm-phone .nm-wa-ft i{width:18px;height:18px;border-radius:50%;background:#00A884;display:block}
+
+/* ---------- Google Meu Negócio ---------- */
+.nm-gmb .nm-scr{background:#fff;color:#202124}
+.nm-gmb .nm-st{color:#202124}
+.nm-phone .nm-g-search{margin:2px 8px 6px;height:20px;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);display:flex;align-items:center;gap:5px;padding:0 8px;font-size:7px;color:#5f6368}
+.nm-phone .nm-g-search b{font-weight:800;font-size:8px;background:linear-gradient(90deg,#4285F4,#EA4335,#FBBC05,#34A853);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nm-phone .nm-map{position:relative;height:118px;margin:0;overflow:hidden;background:#e8f0e3;
+  background-image:linear-gradient(90deg,transparent 46%,#fff 46%,#fff 54%,transparent 54%),linear-gradient(0deg,transparent 46%,#fff 46%,#fff 54%,transparent 54%),
+  linear-gradient(35deg,transparent 47%,#fde9a8 47%,#fde9a8 53%,transparent 53%),linear-gradient(90deg,#dfe9d8 0 30%,transparent 30%);background-size:60px 60px,60px 60px,140px 140px,100% 100%}
+.nm-phone .nm-pin{position:absolute;width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#b0b6bd;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.nm-phone .nm-pin--me{width:20px;height:20px;background:#EA4335;left:62px;top:40px;z-index:2}
+.nm-phone .nm-pin--me::after{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
+.nm-phone .nm-g-card{position:absolute;left:0;right:0;bottom:0;top:166px;background:#fff;border-radius:14px 14px 0 0;box-shadow:0 -2px 8px rgba(0,0,0,.12);padding:8px 10px}
+.nm-phone .nm-g-card h5{font-size:10.5px;font-weight:600}
+.nm-phone .nm-g-stars{margin-top:2px;font-size:8px;color:#FBBC05;letter-spacing:1px}
+.nm-phone .nm-g-stars span{color:#5f6368;letter-spacing:0;font-size:6.5px;margin-left:3px}
+.nm-phone .nm-g-open{font-size:6.8px;margin-top:2px}.nm-phone .nm-g-open b{color:#188038;font-weight:600}
+.nm-phone .nm-g-btns{display:flex;gap:5px;margin-top:7px}
+.nm-phone .nm-g-btns span{flex:1;height:22px;border-radius:11px;border:1px solid #dadce0;display:flex;align-items:center;justify-content:center;gap:3px;font-size:6.8px;font-weight:600;color:#1a73e8}
+.nm-phone .nm-g-btns span:first-child{background:#1a73e8;color:#fff;border-color:#1a73e8}
+.nm-phone .nm-g-pics{display:flex;gap:4px;margin-top:7px}
+.nm-phone .nm-g-pics i{flex:1;height:26px;border-radius:5px;background:linear-gradient(135deg,#c9d6e8,#9fb3cf)}
+.nm-phone .nm-g-pics i:nth-child(2){background:linear-gradient(135deg,#f5d48a,#e2a85a)}
+.nm-phone .nm-g-pics i:nth-child(3){background:linear-gradient(135deg,#b8e0c2,#7fbf91)}
+.nm-phone .nm-g-toast{position:absolute;left:10px;right:10px;top:30px;z-index:7;background:#202124;color:#fff;border-radius:8px;padding:6px 8px;font-size:7px;display:flex;align-items:center;gap:5px;opacity:0}
+.nm-phone .nm-g-toast i{width:12px;height:12px;border-radius:50%;background:#34A853;display:block}
+
+/* ---------- Raio-X ---------- */
+.nm-raio .nm-scr{background:linear-gradient(180deg,#0B1B42,#05091A)}
+.nm-phone .nm-r-hd{padding:4px 10px 6px}
+.nm-phone .nm-r-hd small{display:block;font:700 6px ui-monospace,monospace;letter-spacing:.14em;color:#D4FF24}
+.nm-phone .nm-r-hd b{display:block;font:800 12px system-ui;margin-top:2px}
+.nm-phone .nm-r-site{position:relative;margin:0 10px;height:70px;border-radius:8px;overflow:hidden;border:1px solid rgba(95,212,255,.35);
+  background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/10px 10px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/10px 10px,#0d1736}
+.nm-phone .nm-r-site i{position:absolute;left:8px;right:40px;height:5px;border-radius:3px;background:rgba(255,255,255,.25)}
+.nm-phone .nm-r-site i:nth-child(1){top:10px;right:60px;background:rgba(255,255,255,.6)}
+.nm-phone .nm-r-site i:nth-child(2){top:20px}.nm-phone .nm-r-site i:nth-child(3){top:30px;right:70px}
+.nm-phone .nm-r-site i:nth-child(4){top:44px;right:90px;height:10px;background:#D4FF24}
+.nm-phone .nm-r-scan{position:absolute;left:0;right:0;height:18px;top:-18px;background:linear-gradient(180deg,transparent,rgba(95,212,255,.35),rgba(212,255,36,.9));mix-blend-mode:screen}
+.nm-phone .nm-r-list{list-style:none;margin:8px 10px 0;display:flex;flex-direction:column;gap:4px}
+.nm-phone .nm-r-list li{display:flex;align-items:center;gap:5px;padding:5px 6px;border-radius:6px;background:rgba(255,255,255,.05);font-size:6.8px;line-height:1.25;opacity:0}
+.nm-phone .nm-r-list li i{flex:none;width:12px;height:12px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:7px;font-weight:800;background:#FF8A3D;color:#1a0800}
+.nm-phone .nm-r-list li.ok i{background:#D4FF24;color:#0A1430}
+.nm-phone .nm-r-bar{margin:8px 10px 0;height:5px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
+.nm-phone .nm-r-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#5FD4FF,#D4FF24)}
+.nm-phone .nm-r-btn{position:absolute;left:10px;right:10px;bottom:10px;height:22px;border-radius:11px;background:#D4FF24;color:#0A1430;display:grid;place-items:center;font:800 7.5px system-ui}
+
+@media (prefers-reduced-motion:no-preference){
+  /* anúncio -> WhatsApp (ciclo de 7s) */
+  .nm-ad .nm-tap{animation:nmAdTap 7s infinite}
+  .nm-ad .nm-wa{animation:nmAdWa 7s infinite}
+  .nm-ad .nm-bub{animation:nmAdBub 7s infinite}
+  .nm-ad .nm-typing{animation:nmAdTyp 7s infinite}
+  .nm-ad .nm-online{animation:nmAdOnl 7s infinite}
+  @keyframes nmAdTap{0%,20%{opacity:0;transform:scale(.5)}23%{opacity:1;transform:scale(1)}30%,100%{opacity:0;transform:scale(1.8)}}
+  @keyframes nmAdWa{0%,28%{transform:translateY(102%)}36%,90%{transform:none}97%,100%{transform:translateY(102%)}}
+  @keyframes nmAdBub{0%,44%{opacity:0;transform:translateY(8px)}48%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+  @keyframes nmAdTyp{0%,56%{opacity:0}60%,90%{opacity:1}94%,100%{opacity:0}}
+  @keyframes nmAdOnl{0%,56%{opacity:1}60%,90%{opacity:0}94%,100%{opacity:1}}
+  /* Google Meu Negócio (ciclo de 7s) */
+  .nm-gmb .nm-pin--me{animation:nmPin 7s infinite}
+  .nm-gmb .nm-tap{animation:nmGTap 7s infinite}
+  .nm-gmb .nm-g-toast{animation:nmGToast 7s infinite}
+  .nm-gmb .nm-g-card{animation:nmGCard 7s infinite}
+  @keyframes nmPin{0%,8%{transform:rotate(-45deg) translate(0,-30px);opacity:0}16%{transform:rotate(-45deg) translate(0,0);opacity:1}20%{transform:rotate(-45deg) translate(0,-6px)}24%,100%{transform:rotate(-45deg) translate(0,0);opacity:1}}
+  @keyframes nmGCard{0%,18%{transform:translateY(100%)}28%,100%{transform:none}}
+  @keyframes nmGTap{0%,46%{opacity:0;transform:scale(.5)}49%{opacity:1;transform:scale(1)}56%,100%{opacity:0;transform:scale(1.8)}}
+  @keyframes nmGToast{0%,52%{opacity:0;transform:translateY(-6px)}57%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+  /* Raio-X (ciclo de 8s) */
+  .nm-raio .nm-r-scan{animation:nmScan 8s infinite}
+  .nm-raio .nm-r-list li{animation:nmItem 8s infinite}
+  .nm-raio .nm-r-list li:nth-child(2){animation-delay:.6s}
+  .nm-raio .nm-r-list li:nth-child(3){animation-delay:1.2s}
+  .nm-raio .nm-r-list li:nth-child(4){animation-delay:1.8s}
+  .nm-raio .nm-r-bar span{animation:nmBar 8s infinite}
+  @keyframes nmScan{0%{top:-18px}25%{top:70px}26%,100%{top:-18px}}
+  @keyframes nmItem{0%,24%{opacity:0;transform:translateX(-8px)}30%,88%{opacity:1;transform:none}95%,100%{opacity:0}}
+  @keyframes nmBar{0%,20%{width:0}60%,88%{width:100%}95%,100%{width:0}}
+}
+@media (prefers-reduced-motion:reduce){
+  .nm-ad .nm-wa{transform:none}.nm-ad .nm-bub,.nm-raio .nm-r-list li{opacity:1}.nm-raio .nm-r-bar span{width:100%}
+}
+
+/* no site, o reset das telas zera o padding: devolve a moldura do celular */
+.cine .m-mock .nm-phone{padding:5px}
