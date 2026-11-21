@@ -1,5 +1,5 @@
 /* =========================================================
-   FILTRUM MARKETING DIGITAL — Landing page (estilo futurista / IA)
+   FILTRUM MARKETING DIGITAL: Landing page (estilo futurista / IA)
    Paleta: Midnight Black #030407 · Electric Cobalt #1558C9 · Acid Lime #D4FF24
    ========================================================= */
 
@@ -704,7 +704,7 @@ button { font: inherit; }
 .js .segment.reveal.is-visible:hover { transform: translateY(-6px); }
 
 /* =========================================================
-   PÁGINA DE LINKS (/links) — link da bio do Instagram
+   PÁGINA DE LINKS (/links): link da bio do Instagram
    ========================================================= */
 .js .links-page .reveal { filter: none; transition-duration: .5s; }
 .links-page .hero.links {
@@ -959,4 +959,24 @@ button { font: inherit; }
   .proof__row::-webkit-scrollbar { display: none; }
   .proof { flex: 0 0 86%; scroll-snap-align: start; padding: 14px; }
   .proof__big { font-size: 1.2rem; }
+}
+
+/* =======================================================
+   Espaçamento mais justo entre e dentro das seções
+   ======================================================= */
+.section { padding: clamp(48px, 6vw, 76px) 0; }
+.section__head { margin-bottom: clamp(24px, 3.4vw, 38px); }
+.cta-final { padding: clamp(56px, 7vw, 88px) 0; }
+.oqf { padding: 24px 0 28px; }
+.about__grid { margin-top: 24px; }
+.about__stats { margin-top: 28px; }
+.about__cta { margin-top: 28px; }
+.proof__row { margin-bottom: 30px; }
+.proof__group { margin: 0 0 14px; }
+.faq__item + .faq__item { margin-top: 10px; }
+@media (max-width: 560px) {
+  .section { padding: 44px 0; }
+  .about__grid { margin-top: 20px; }
+  .about__stats { margin-top: 22px; }
+  .about__cta { margin-top: 22px; }
 }

@@ -468,3 +468,17 @@
   letter-spacing:.02em;color:#0A1430;background:var(--lime);box-shadow:0 0 22px -4px rgba(212,255,36,.7)}
 .cine__badge::before{content:"★"}
 .cine__feats li.cine__feat--hl{border-color:rgba(212,255,36,.6);background:rgba(212,255,36,.12);color:#fff}
+
+/* ===== espaçamento mais justo nas cenas de serviço ===== */
+.cine__head{padding-top:64px;padding-bottom:4px}
+.cine__scene{min-height:auto}
+.cine__inner{padding:52px max(24px,env(safe-area-inset-right)) 52px max(24px,env(safe-area-inset-left))}
+.cine__name{margin-top:12px}
+.cine__text{margin-top:12px}
+.cine__feats{margin-top:16px}
+.cine__cta{margin-top:22px}
+@media (max-width:900px){
+  .cine__inner{padding:40px 20px 44px;gap:20px}
+  .cine__stage{height:300px}
+  .cine__head{padding-top:48px}
+}
