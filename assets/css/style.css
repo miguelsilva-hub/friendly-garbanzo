@@ -980,3 +980,10 @@ button { font: inherit; }
   .about__stats { margin-top: 22px; }
   .about__cta { margin-top: 22px; }
 }
+
+/* Para quem é no celular: duas etiquetas por linha */
+@media (max-width: 560px) {
+  .segments--tags { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .segments--tags .segment { border-radius: 14px; padding: 6px 10px 6px 6px; font-size: .8rem; line-height: 1.2; min-width: 0; }
+  .segments--tags .segment__icon { flex: 0 0 30px; }
+}
