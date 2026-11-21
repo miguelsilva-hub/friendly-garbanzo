@@ -128,3 +128,21 @@
 
 /* no site, o reset das telas zera o padding: devolve a moldura do celular */
 .cine .m-mock .nm-phone{padding:5px}
+
+/* ---------- social media: print real do perfil da Filtrum, com movimento ---------- */
+.nm-phone .nm-igr{position:absolute;inset:0;overflow:hidden;background:#000}
+.nm-phone .nm-igr-cam{position:absolute;left:0;top:0;width:100%;transform-origin:0 0}
+.nm-phone .nm-igr-cam img{display:block;width:100%;height:auto}
+.nm-phone .nm-igr-hl{position:absolute;left:3%;width:78%;top:25%;height:7.6%;border:1.5px solid #D4FF24;border-radius:6px;box-shadow:0 0 10px rgba(212,255,36,.6);opacity:0}
+.nm-phone .nm-igr-tap{position:absolute;left:50%;top:78%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,.35);opacity:0}
+.nm-phone .nm-igr-heart{position:absolute;left:50%;top:78%;margin:-14px 0 0 -12px;font-size:24px;line-height:1;color:#fff;opacity:0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+@media (prefers-reduced-motion:no-preference){
+  .nm-phone .nm-igr-cam{animation:nmIgCam 10s ease-in-out infinite}
+  .nm-phone .nm-igr-hl{animation:nmIgHl 10s ease-in-out infinite}
+  .nm-phone .nm-igr-tap{animation:nmIgTap 10s ease-out infinite}
+  .nm-phone .nm-igr-heart{animation:nmIgHeart 10s ease-out infinite}
+  @keyframes nmIgCam{0%,6%{transform:scale(1) translate(0,0)}16%,32%{transform:scale(1.3) translate(-3%,-1%)}52%,72%{transform:scale(1.3) translate(-3%,-25.5%)}90%,100%{transform:scale(1) translate(0,0)}}
+  @keyframes nmIgHl{0%,6%{opacity:0}12%,30%{opacity:1}36%,100%{opacity:0}}
+  @keyframes nmIgTap{0%,58%{opacity:0;transform:scale(.5)}60%{opacity:1;transform:scale(1)}66%,100%{opacity:0;transform:scale(1.8)}}
+  @keyframes nmIgHeart{0%,60%{opacity:0;transform:scale(.3)}63%{opacity:1;transform:scale(1.2)}68%{transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
+}
